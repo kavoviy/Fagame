@@ -49,6 +49,13 @@
         .logo {
             cursor: pointer;
         }
+
+        @media (max-width: 768px) {
+          .hero-desc {
+            max-width: 290px;
+          }
+        } 
+        
         @media (max-width: 768px) {
             .catalog-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -78,7 +85,13 @@
     <div class="container">
         <!-- Hero Section with Stray game -->
         <div class="hero">
-            <img src="https://img4.teletype.in/files/3f/8d/3f8d1843-fc61-4439-9d2d-88a91f2617b1.png" alt="Stray Game" draggable="false">
+            <picture>
+                <!-- Картинка для устройств шириной до 768px -->
+                <source srcset="https://www.denofgeek.com/wp-content/uploads/2020/06/stray-release-date-trailer-gameplay-news.jpg?resize=400%2C400" media="(max-width: 768px)">
+                <!-- Картинка по умолчанию -->
+                <img src="https://img4.teletype.in/files/3f/8d/3f8d1843-fc61-4439-9d2d-88a91f2617b1.png" alt="Stray Game" draggable="false" style="width: 100%; height: 100%; object-fit: cover;">
+            </picture>
+
             <div class="hero-content">
                 <h1 class="hero-title">STRAY</h1>
                 <p class="hero-desc">Stray is a third-person cat adventure game set amidst the detailed, neon-lit alleys of a decaying cybercity and the murky environments of its seedy underbelly.</p>
