@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Admin Panel - Create Game Page</title>
+    <title>Admin Panel</title>
     <style>
         body { font-family: Arial, sans-serif; background: #1c1c1c; color: white; padding: 20px; }
         input, textarea { width: 100%; margin-bottom: 10px; padding: 8px; border-radius: 5px; border: none; }
@@ -10,6 +10,13 @@
         button { padding: 10px 20px; border: none; background: #5661E5; color: white; border-radius: 5px; cursor: pointer; }
         button:hover { background: #414db3; }
         .section { margin-bottom: 30px; }
+
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            input, textarea { font-size: 16px; padding: 10px; }
+            button { width: 100%; padding: 12px; font-size: 16px; }
+            label { font-size: 16px; }
+        }
     </style>
 </head>
 <body>
@@ -114,10 +121,9 @@
             const iframe1 = `<iframe width="423" height="238" src="https://www.youtube.com/embed/${youtube1}" frameborder="0" allowfullscreen style="border-radius:30px;"></iframe>`;
             const iframe2 = `<iframe width="423" height="238" src="https://www.youtube.com/embed/${youtube2}" frameborder="0" allowfullscreen style="border-radius:30px;"></iframe>`;
 
-            // Replace data
             const replacements = {
                 'Stray': document.getElementById('gameName').value,
-                'strayp.png': document.getElementById('posterImage').value,
+                'src="https://img3.teletype.in/files/e4/fb/e4fb9b21-7914-4cfb-85bd-7b614dbde4cb.png"': `src="${document.getElementById('posterImage').value}"`,
                 '9.1': document.getElementById('gameRating').value,
                 '19 July 2022': document.getElementById('releaseDate').value,
                 'Adventure, Indie': document.getElementById('genre').value,
@@ -128,12 +134,12 @@
                 'GTX 950': document.getElementById('videoCard').value,
                 'Windows 10': document.getElementById('os').value,
                 'Stray is a third-person cat adventure game set amidst the detailed, neon-lit alleys of a decaying cybercity and the murky environments of its seedy underbelly. Roam surroundings high and low, defend against unforeseen threats and solve the mysteries of this unwelcoming place inhabited by curious droids and dangerous creatures. See the world through the eyes of a cat and interact with the environment in playful ways. Be stealthy, nimble, silly, and sometimes as annoying as possible with the strange inhabitants of this mysterious world.': document.getElementById('overview').value,
-                'strayscr1.png': document.getElementById('screenshot1').value,
-                'strayscr2.png': document.getElementById('screenshot2').value,
-                'strayscr3.png': document.getElementById('screenshot3').value,
-                'strayscr4.png': document.getElementById('screenshot4').value,
-                'strayscr5.png': document.getElementById('screenshot5').value,
-                'strayscr6.png': document.getElementById('screenshot6').value,
+                'src="https://img1.teletype.in/files/80/c6/80c645ef-bf22-473c-9af8-0d98a45b061f.png"': `src="${document.getElementById('screenshot1').value}"`,
+                'src="https://img3.teletype.in/files/23/38/23380276-0beb-4a65-aa54-dbc28c3dc490.png"': `src="${document.getElementById('screenshot2').value}"`,
+                'src="https://img4.teletype.in/files/bc/d9/bcd9cb67-747c-4e3f-8ed0-d31e5ae2e2b7.png"': `src="${document.getElementById('screenshot3').value}"`,
+                'src="https://img2.teletype.in/files/df/a9/dfa97d23-f356-4776-83ea-8ffae695bb67.png"': `src="${document.getElementById('screenshot4').value}"`,
+                'src="https://img2.teletype.in/files/9d/c8/9dc83fe3-0f1d-47e5-bb9f-a9484b57624e.png"': `src="${document.getElementById('screenshot5').value}"`,
+                'src="https://img2.teletype.in/files/1f/9e/1f9e74d1-0b38-46ac-96f2-f8fb9491a4db.png"': `src="${document.getElementById('screenshot6').value}"`,
                 'Login: jlxwu557': 'Login: ' + document.getElementById('login').value,
                 'Pass: fpnu71753GX': 'Pass: ' + document.getElementById('password').value
             };
@@ -142,7 +148,6 @@
                 template = template.replaceAll(key, value);
             }
 
-            // Replace trailer placeholders
             template = template.replace('<div id="trailer1"></div>', iframe1);
             template = template.replace('<div id="trailer2"></div>', iframe2);
 
@@ -152,7 +157,6 @@
             link.download = fileName + '.html';
             link.click();
         }
-
     </script>
 </body>
 </html>
